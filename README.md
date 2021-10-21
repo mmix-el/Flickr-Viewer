@@ -1,3 +1,11 @@
+## Flicker Viewer
+##Flickr.com image viewer app
+##Приложение для просмотра изображений с Flickr.com (https://www.flickr.com/services/api/flickr.photos.search.html)
+-Для сетевого взаимодействия используется Retrofit 
+-ViewModel выполненет сетевые запросы к бэкэнду для получения актуальных изображений 
+-DataBinding и LiveData для обновления UI
+-Moshi для преобразования JSON в объекты Kotlin
+
 [ResponseEntity] Object
 {
     [ResponseMetadata] Object
