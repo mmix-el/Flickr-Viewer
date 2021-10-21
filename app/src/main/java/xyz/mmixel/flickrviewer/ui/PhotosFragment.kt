@@ -10,14 +10,21 @@ import xyz.mmixel.flickrviewer.databinding.FragmentPhotosBinding
 
 class PhotosFragment : Fragment() {
     private val viewModel: PhotosViewModel by viewModels()
+    private lateinit var binding: FragmentPhotosBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = FragmentPhotosBinding.inflate(inflater)
+        // Inflating the layout with the Data Binding
+        binding = FragmentPhotosBinding.inflate(inflater)
+        // Setting the lifecycle owner on the fragment
+        binding.lifecycleOwner = this
+        // Getting access to the viewModel for the Binding
         binding.viewModel = viewModel
-        return  binding.root
+        // Setting the RecyclerView with an adapter
+        binding.recyclerview.adapter = PhotosAdapter()
+        return binding.root
     }
 }

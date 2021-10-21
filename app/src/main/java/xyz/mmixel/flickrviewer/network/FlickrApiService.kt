@@ -10,22 +10,35 @@ import xyz.mmixel.flickrviewer.model.ResponseEntity
 
 private const val BASE_URL = "https://api.flickr.com/services/rest/"
 
+/**
+ * Build the Moshi object
+ */
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
     .build()
 
+/**
+ * Build a retrofit object using a Moshi converter
+ */
 private val retrofit = Retrofit.Builder()
     .addConverterFactory(MoshiConverterFactory.create(moshi))
     .baseUrl(BASE_URL)
     .build()
 
-
+/**
+ * A public interface that exposes the [getPhotos] method
+ */
 interface FlickrApiService {
-    @GET("?method=flickr.photos.search&format=json&nojsoncallback=1&text=dogs" +
-            "&api_key=${BuildConfig.FLICKR_API_KEY}&secret=${BuildConfig.FLICKR_SECRET}")
+    @GET(
+        "?method=flickr.photos.search&format=json&nojsoncallback=1&text=alpine lake" +
+                "&api_key=${BuildConfig.FLICKR_API_KEY}&secret=${BuildConfig.FLICKR_SECRET}"
+    )
     suspend fun getPhotos(): ResponseEntity
 }
 
+/**
+ * A public Api object that exposes the Retrofit service
+ */
 object FlickrApi {
     val retrofitService: FlickrApiService by lazy {
         retrofit.create(FlickrApiService::class.java)

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Flickr Viewer</string>
+    <string name="content_description">Some image obtained from the Internet</string>
 </resources>

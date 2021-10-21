@@ -1,5 +1,9 @@
 package xyz.mmixel.flickrviewer.model
 
+/**
+ * Support classes to help Moshi generate Kotlin objects from JSON
+ */
+
 data class ResponseEntity(
     val photos: ResponseMetadata,
     val stat: String
