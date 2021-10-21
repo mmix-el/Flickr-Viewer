@@ -1,4 +1,4 @@
-## Flicker Viewer
+## Flickr Viewer
 ## Flickr.com image viewer app
 ## Приложение для просмотра изображений с [Flickr.com](https://www.flickr.com/services/api/flickr.photos.search.html)
 - Для сетевого взаимодействия используется Retrofit 
